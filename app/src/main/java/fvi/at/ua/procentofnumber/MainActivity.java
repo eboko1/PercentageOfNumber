@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,12 +52,20 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             });
+            ImageButton clean = (ImageButton) findViewById(R.id.clean);
+            clean.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    if (percentageText.getText().toString().equals("") || numberText.getText().toString().equals("")){
+                        Toast.makeText(getApplicationContext(),"\n" + "Clears entered numbers", Toast.LENGTH_LONG).show();
+                    } else {
+                        percentageText.setText(null);
+                        numberText.setText(null);
+                        totalTextView.setText(null);
+                    }
+
+                }
+            });
     }
-
-
-
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

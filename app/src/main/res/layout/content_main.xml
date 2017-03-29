@@ -95,8 +95,8 @@
 
     <Button
         android:id="@+id/calcBtn"
-        android:layout_width="218dp"
-        android:layout_height="48dp"
+        android:layout_width="100dp"
+        android:layout_height="52dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:autoText="false"
@@ -108,7 +108,23 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/numberText"
+        app:layout_constraintHorizontal_bias="0.297" />
+
+    <ImageButton
+        android:id="@+id/clean"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="44dp"
+        android:background="@color/colorAccent"
+        app:layout_constraintHorizontal_bias="0.406"
+        app:layout_constraintLeft_toRightOf="@+id/calcBtn"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/imagebut_clear"
+        android:layout_marginTop="15dp"
         app:layout_constraintTop_toBottomOf="@+id/numberText" />
+
 
 </android.support.constraint.ConstraintLayout>
