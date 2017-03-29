@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             clean.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
                     if (percentageText.getText().toString().equals("") || numberText.getText().toString().equals("")){
-                        Toast.makeText(getApplicationContext(),"\n" + "Clears entered numbers", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Clears entered numbers", Toast.LENGTH_LONG).show();
                     } else {
                         percentageText.setText(null);
                         numberText.setText(null);
