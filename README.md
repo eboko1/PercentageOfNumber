@@ -1,3 +1,4 @@
 # PercentageOfNumber
 #What percentage of number ?
-![1](https://cloud.githubusercontent.com/assets/20156577/24272740/524b6122-1027-11e7-9bc4-15ca1049d23d.gif)
+![gif](https://cloud.githubusercontent.com/assets/20156577/24475638/368907d0-14d9-11e7-9c15-d446f43c299b.gif)
+
