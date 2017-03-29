@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
         TextView totalTextView;
@@ -40,11 +41,14 @@ public class MainActivity extends AppCompatActivity {
             Button calcBtn = (Button) findViewById(R.id.calcBtn);
             calcBtn.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
-                    float percentage = Float.parseFloat(percentageText.getText().toString());
-                    float dec = percentage / 100;
-                    float total = dec * Float.parseFloat(numberText.getText().toString());
-                    totalTextView.setText(Float.toString(total));
-
+                    if (percentageText.getText().toString().equals("") || numberText.getText().toString().equals("")){
+                        Toast.makeText(getApplicationContext(),"Enter the numbers", Toast.LENGTH_LONG).show();
+                    } else {
+                        float percentage = Float.parseFloat(percentageText.getText().toString());
+                        float dec = percentage / 100;
+                        float total = dec * Float.parseFloat(numberText.getText().toString());
+                        totalTextView.setText(Float.toString(total));
+                    }
                 }
             });
     }
