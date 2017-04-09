@@ -23,9 +23,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        
+
         totalTextView = (TextView)findViewById(R.id.totalTextView);
         percentageText = (EditText)findViewById(R.id.percentageText);
         numberText = (EditText)findViewById(R.id.numberText);
@@ -56,6 +57,12 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             });
+        if (savedInstanceState != null){
+
+        }
+    }
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+    
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
