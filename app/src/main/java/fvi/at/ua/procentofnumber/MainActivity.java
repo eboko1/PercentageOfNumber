@@ -21,14 +21,6 @@ public class MainActivity extends AppCompatActivity {
         EditText numberText;
         float totalSave = 0;
 
-    public float calculate(){
-        float percentage = Float.parseFloat(percentageText.getText().toString());
-        float dec = percentage / 100;
-        float total = dec * Float.parseFloat(numberText.getText().toString());
-        totalSave = total;
-        return totalSave;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,6 +71,14 @@ public class MainActivity extends AppCompatActivity {
     public void onSaveInstanceState(Bundle savedInstanceState) {
         savedInstanceState.putFloat(KEY_TOTAL,totalSave);
         super.onSaveInstanceState(savedInstanceState);
+    }
+
+    public float calculate(){
+        float percentage = Float.parseFloat(percentageText.getText().toString());
+        float dec = percentage / 100;
+        float total = dec * Float.parseFloat(numberText.getText().toString());
+        totalSave = total;
+        return totalSave;
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
