@@ -15,14 +15,28 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-        TextView totalTextView;
+        private static final String KEY_TOTAL = "totalTextView";
+        TextView totalTextView ;
         EditText percentageText;
         EditText numberText;
+        float totalSave = 0;
+
+    public float calculate(){
+        float percentage = Float.parseFloat(percentageText.getText().toString());
+        float dec = percentage / 100;
+        float total = dec * Float.parseFloat(numberText.getText().toString());
+        totalSave = total;
+        return totalSave;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (savedInstanceState != null){
+            totalSave = savedInstanceState.getFloat(KEY_TOTAL);
+        }
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -31,19 +45,21 @@ public class MainActivity extends AppCompatActivity {
         percentageText = (EditText)findViewById(R.id.percentageText);
         numberText = (EditText)findViewById(R.id.numberText);
 
+
+
             Button calcBtn = (Button) findViewById(R.id.calcBtn);
             calcBtn.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
                     if (percentageText.getText().toString().equals("") || numberText.getText().toString().equals("")){
                         Toast.makeText(getApplicationContext(),"Enter the numbers", Toast.LENGTH_LONG).show();
                     } else {
-                        float percentage = Float.parseFloat(percentageText.getText().toString());
-                        float dec = percentage / 100;
-                        float total = dec * Float.parseFloat(numberText.getText().toString());
-                        totalTextView.setText(Float.toString(total));
+                        calculate();
+                        totalTextView.setText(Float.toString(totalSave));
                     }
                 }
             });
+
+
             ImageButton clean = (ImageButton) findViewById(R.id.clean);
             clean.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
@@ -57,12 +73,12 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             });
-        if (savedInstanceState != null){
 
-        }
     }
+    @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
-    
+        savedInstanceState.putFloat(KEY_TOTAL,totalSave);
+        super.onSaveInstanceState(savedInstanceState);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
